@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_WorkingDirectory" Type="InArgument(x:String)" />
     <x:Property Name="in_logFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_newFiles" Type="InArgument(scg:List(x:String))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />

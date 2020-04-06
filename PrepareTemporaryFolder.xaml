@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,957</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1129</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrepareTemporaryFolder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,7 +56,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrepareTemporaryFolder" sap:VirtualizedContainerService.HintSize="563,892" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrepareTemporaryFolder" sap:VirtualizedContainerService.HintSize="563,1064" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="folderName" />
     </Sequence.Variables>
@@ -81,9 +81,9 @@
         <InArgument x:TypeArguments="x:String">[in_TemporaryFolderPath + folderName + "\\"]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[NOT Directory.Exists(out_DateDirectory)]" DisplayName="Create temporary folders and files" sap:VirtualizedContainerService.HintSize="521,500" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[NOT Directory.Exists(out_DateDirectory)]" DisplayName="Create temporary folders and files" sap:VirtualizedContainerService.HintSize="521,672" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Create sequence" sap:VirtualizedContainerService.HintSize="376,352" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Create sequence" sap:VirtualizedContainerService.HintSize="376,524" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,6 +92,7 @@
           <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[out_DateDirectory]" />
           <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[out_DateDirectory + &quot;\\Errors\\&quot;]" />
           <ui:CreateFile ContinueOnError="{x:Null}" DisplayName="Create File" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[&quot;log &quot; + folderName + &quot;.txt&quot;]" Path="[out_DateDirectory]" />
+          <ui:AppendLine DisplayName="StartLog" FileName="[out_DateDirectory + &quot;log &quot; + folderName + &quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[Environment.NewLine]" />
         </Sequence>
       </If.Then>
     </If>
