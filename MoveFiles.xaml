@@ -141,7 +141,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:MoveFile ContinueOnError="{x:Null}" Destination="[dateDirectory]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[file]" />
                         <ui:AppendLine DisplayName="StartLog" FileName="[logFilePath]" sap:VirtualizedContainerService.HintSize="384,132" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; [OK] ZIP файл &quot; + Path.GetFileNameWithoutExtension(file) + &quot; перемещён&quot;]" />
-                        <AddToCollection x:TypeArguments="x:String" Collection="[out_NewFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[Path.GetFileName(file)]" />
+                        <AddToCollection x:TypeArguments="x:String" Collection="[out_NewFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[file]" />
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
@@ -163,7 +163,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:AppendLine DisplayName="StartLog" FileName="[logFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; [ERROR] Возникла ошибка при перемещении файла &quot; + Path.GetFileNameWithoutExtension(file)]" />
-                            <AddToCollection x:TypeArguments="x:String" Collection="[out_ErrorFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[Path.GetFileName(file)]" />
+                            <AddToCollection x:TypeArguments="x:String" Collection="[out_ErrorFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[file]" />
                           </Sequence>
                         </ActivityAction>
                       </Catch>
