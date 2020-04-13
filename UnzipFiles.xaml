@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1788</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1788</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UnzipFiles_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -160,8 +160,8 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <AddToCollection x:TypeArguments="x:String" Collection="[out_errorFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[file]" />
                             <ui:AppendLine DisplayName="StartLog" FileName="[in_logFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; [ERROR] Возникла ошибка при разархивировании файла &quot; + Path.GetFileNameWithoutExtension(file)]" />
-                            <AddToCollection x:TypeArguments="x:String" Collection="[out_ErrorFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[file]" />
                           </Sequence>
                         </ActivityAction>
                       </Catch>

@@ -3,13 +3,14 @@
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="out_WorkingDirectory" Type="OutArgument(x:String)" />
     <x:Property Name="out_NewFiles" Type="OutArgument(scg:List(x:String))" />
-    <x:Property Name="out_LogFilePath" Type="OutArgument(x:String)" />
     <x:Property Name="out_ErrorFiles" Type="OutArgument(scg:List(x:String))" />
+    <x:Property Name="in_LogFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_dateDirectory" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,2033</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1182,2333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MoveFiles_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -58,7 +59,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MoveFiles" sap:VirtualizedContainerService.HintSize="771,1968" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MoveFiles" sap:VirtualizedContainerService.HintSize="771,2268" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="sourceDirectory" />
       <Variable x:TypeArguments="s:String[]" Name="newFiles" />
@@ -111,6 +112,22 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[new List(of String)]</InArgument>
       </Assign.Value>
     </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="729,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[logFilePath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_LogFilePath]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="729,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[dateDirectory]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_dateDirectory]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="729,1176" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[newFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
@@ -134,6 +151,9 @@
                   <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="464,710" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <TryCatch.Try>
                       <Sequence sap:VirtualizedContainerService.HintSize="426,483" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="variable1" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,7 +161,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:MoveFile ContinueOnError="{x:Null}" Destination="[dateDirectory]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[file]" />
                         <ui:AppendLine DisplayName="StartLog" FileName="[logFilePath]" sap:VirtualizedContainerService.HintSize="384,132" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; [OK] ZIP файл &quot; + Path.GetFileNameWithoutExtension(file) + &quot; перемещён&quot;]" />
-                        <AddToCollection x:TypeArguments="x:String" Collection="[out_NewFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[file]" />
+                        <AddToCollection x:TypeArguments="x:String" Collection="[out_NewFiles]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[dateDirectory + Path.GetFileName(file)]" />
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
@@ -184,12 +204,20 @@
         <InArgument x:TypeArguments="x:String">[dateDirectory]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="729,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="729,60" sap2010:WorkflowViewState.IdRef="Assign_10">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_LogFilePath]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[logFilePath]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[logFilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_LogFilePath]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="729,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[logFilePath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_LogFilePath]</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ProcessFiles" this:ProcessFiles.in_ProcessFolder="C:\Users\a773611\Desktop\test\1\" this:ProcessFiles.in_MergeScriptPath="C:\Users\a773611\Documents\UiPath\Sanofi_PDF_Processing\Modules\pdf_acrofield1.ps1" this:ProcessFiles.in_iTextSharpPath="C:\Users\a773611\Documents\UiPath\Sanofi_PDF_Processing\Modules\itextsharp.dll" this:ProcessFiles.in_outputFilePath="output.pdf" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessFiles" this:ProcessFiles.in_ProcessFolder="C:\\Users\\a773611\\Desktop\\temporary\\06.04.2020\\b7d2109b-952d-4881-8a3e-750b02f3ec91_INN_7709622075\\" this:ProcessFiles.in_MergeScriptPath="C:\Projects\UiPath\Solution\Sanofi_PDF_Processing\Modules\merge_script.ps1" this:ProcessFiles.in_iTextSharpPath="C:\Projects\UiPath\Solution\Sanofi_PDF_Processing\Modules\itextsharp.dll" this:ProcessFiles.in_outputFilePath="C:\\Users\\a773611\\Desktop\\b7d2109b-952d-4881-8a3e-750b02f3ec91_123_INN_7709622075.pdf" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ProcessFolder" Type="InArgument(x:String)" />
     <x:Property Name="in_MergeScriptPath" Type="InArgument(x:String)" />
@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,831</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessFiles_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -69,7 +69,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokePowerShell x:TypeArguments="x:String" ContinueOnError="{x:Null}" CommandText="[&quot;powershell -ExecutionPolicy Unrestricted -File &quot; + in_MergeScriptPath + &quot; -workingDirectory &quot; + in_ProcessFolder + &quot; -itext_sharp &quot; + in_iTextSharpPath + &quot; -output_file &quot; + in_OutputFilePath]" DisplayName="Invoke power shell" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_3" IsScript="True" Output="[scriptResult]">
+    <ui:InvokePowerShell x:TypeArguments="x:String" ContinueOnError="{x:Null}" CommandText="[&quot;powershell -ExecutionPolicy Unrestricted -File &quot; + in_MergeScriptPath + &quot; -workingDirectory &quot; + in_ProcessFolder + &quot; -itext_sharp &quot; + in_iTextSharpPath + &quot; -output_file &quot; + in_OutputFilePath]" DisplayName="Invoke power shell" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True" Output="[scriptResult]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
