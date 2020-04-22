@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1553,2813</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1553,2913</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetConfig_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -243,13 +243,14 @@
         </TryCatch>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,224" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,323" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:AppendLine DisplayName="StartLog" FileName="[processLogFile]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_6" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; - [ERROR] Не удалось получить доступ к Config-файлу&quot; + Environment.NewLine]" />
+          <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="eInvoicing - обработка PDF файлов" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[DateTime.Today.ToString(&quot;dd.MM.yyyy&quot;) + &quot; &quot; + DateTime.Now.ToString(&quot;HH:mm&quot;) + &quot; - [ERROR] Не удалось получить доступ к Config-файлу&quot; + Environment.NewLine]" TopMost="True" />
         </Sequence>
       </If.Else>
     </If>
